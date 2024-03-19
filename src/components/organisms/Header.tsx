@@ -13,7 +13,7 @@ function Header() {
   const [open, setOpen] = useState(false)
   const handleOpen = (boolean: boolean) => setOpen(boolean)
   const style = {
-    menuBar: clsx('wrapper translate-x-[200%] flex-wrap fixed lg:static transition-transform flex duration-1000 w-full gap-2  items-start bg-primary-green lg:translate-x-0', open && 'translate-x-0')
+    menuBar: clsx('wrapper translate-y-[-200%] flex-wrap fixed lg:static transition-transform flex duration-1000 w-full gap-2  items-start bg-primary-green lg:translate-y-0', open && 'translate-y-0')
   }
   return (
     <header className='overflow-x-hidden w-full lg:bg-primary-green'>
