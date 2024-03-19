@@ -5,6 +5,6 @@
 
 @layer components {
     .wrapper {
-        @apply p-3 max-w-[1440px] my-0 mx-auto
+        @apply max-w-[1440px] my-0 mx-auto
     }
 }

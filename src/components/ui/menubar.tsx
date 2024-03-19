@@ -27,7 +27,7 @@ React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Root>
   <MenubarPrimitive.Root
     ref={ref}
     className={cn(
-      'flex flex-wrap items-center space-x-1 p-2 dark:border-slate-800 dark:bg-slate-950',
+      'flex flex-wrap text-gray-100 items-center space-x-1 p-2 dark:border-slate-800 dark:bg-slate-950',
       className
     )}
     {...props}
@@ -120,7 +120,7 @@ React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Item> & {
   <MenubarPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-slate-100 focus:text-slate-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-slate-800 dark:focus:text-slate-50',
+      'relative flex hover:bg-slate-200/70 transition-colors cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-slate-100 focus:text-slate-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-slate-800 dark:focus:text-slate-50',
       inset && 'pl-8',
       className
     )}
