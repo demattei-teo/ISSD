@@ -1,6 +1,6 @@
 'use client'
 
-import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger } from '@/components/ui/menubar'
+import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger } from '@/components/ui/menubar'
 import { categories } from '@/utils/Links'
 import clsx from 'clsx'
 import Image from 'next/image'
@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { CloseIcon, MenuIcon } from '..'
 import Button from '../atoms/Buttons'
+import { ScrollArea } from '../ui/scroll-area'
 
 function Header() {
   const [open, setOpen] = useState(false)
@@ -30,71 +31,208 @@ function Header() {
         <MenubarMenu>
           <MenubarTrigger>Archivo</MenubarTrigger>
           <MenubarContent>
-            {categories.archivo.map((category, index) => (
-              <MenubarItem key={index}>
-                <Link href={category.link}>{category.name}</Link>
-              </MenubarItem>
-            ))}
+            <ScrollArea className='h-[384px] px-2'>
+
+              {categories.archivo.map((category, index) => {
+                if (category.subMenu) {
+                  return (
+                    <MenubarSub key={index}>
+                      <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
+                      <MenubarSubContent>
+                        {category.subMenu.map((subMenu, index) => {
+                          return (
+                            <MenubarItem key={index}>
+                              <Link href='/'>{subMenu.name}</Link>
+                            </MenubarItem>
+                          )
+                        })}
+                      </MenubarSubContent>
+                    </MenubarSub>
+                  )
+                } else {
+                  return (
+                    <MenubarItem key={index}>
+                      <Link href={category.link}>{category.name}</Link>
+                    </MenubarItem>
+                  )
+                }
+              })}
+            </ScrollArea>
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
           <MenubarTrigger>Carreras</MenubarTrigger>
           <MenubarContent>
-            {categories.carreras.map((category, index) => (
-              <MenubarItem key={index}>
-                <Link href={category.link}>{category.name}</Link>
-              </MenubarItem>
-            ))}
+            {categories.carreras.map((category, index) => {
+              if (category.subMenu) {
+                return (
+                  <MenubarSub key={index}>
+                    <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
+                    <MenubarSubContent>
+                      {category.subMenu.map((subMenu, index) => {
+                        return (
+                          <MenubarItem key={index}>
+                            <Link href='/'>{subMenu.name}</Link>
+                          </MenubarItem>
+                        )
+                      })}
+                    </MenubarSubContent>
+                  </MenubarSub>
+                )
+              } else {
+                return (
+                  <MenubarItem key={index}>
+                    <Link href={category.link}>{category.name}</Link>
+                  </MenubarItem>
+                )
+              }
+            }
+            )}
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
           <MenubarTrigger>Alumnos</MenubarTrigger>
           <MenubarContent>
-            {categories.alumnos.map((category, index) => (
-              <MenubarItem key={index}>
-                <Link href={category.link}>{category.name}</Link>
-              </MenubarItem>
-            ))}
+            {categories.alumnos.map((category, index) => {
+              if (category.subMenu) {
+                return (
+                  <MenubarSub key={index}>
+                    <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
+                    <MenubarSubContent>
+                      {category.subMenu.map((subMenu, index) => {
+                        return (
+                          <MenubarItem key={index}>
+                            <Link href='/'>{subMenu.name}</Link>
+                          </MenubarItem>
+                        )
+                      })}
+                    </MenubarSubContent>
+                  </MenubarSub>
+                )
+              } else {
+                return (
+                  <MenubarItem key={index}>
+                    <Link href={category.link}>{category.name}</Link>
+                  </MenubarItem>
+                )
+              }
+            })}
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
           <MenubarTrigger>Docentes</MenubarTrigger>
           <MenubarContent>
-            {categories.docentes.map((category, index) => (
-              <MenubarItem key={index}>
-                <Link href={category.link}>{category.name}</Link>
-              </MenubarItem>
-            ))}
+            {categories.docentes.map((category, index) => {
+              if (category.subMenu) {
+                return (
+                  <MenubarSub key={index}>
+                    <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
+                    <MenubarSubContent>
+                      {category.subMenu.map((subMenu, index) => {
+                        return (
+                          <MenubarItem key={index}>
+                            <Link href='/'>{subMenu.name}</Link>
+                          </MenubarItem>
+                        )
+                      })}
+                    </MenubarSubContent>
+                  </MenubarSub>
+                )
+              } else {
+                return (
+                  <MenubarItem key={index}>
+                    <Link href={category.link}>{category.name}</Link>
+                  </MenubarItem>
+                )
+              }
+            })}
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
           <MenubarTrigger>Cursado</MenubarTrigger>
           <MenubarContent>
-            {categories.cursado.map((category, index) => (
-              <MenubarItem key={index}>
-                <Link href={category.link}>{category.name}</Link>
-              </MenubarItem>
-            ))}
+            {categories.cursado.map((category, index) => {
+              if (category.subMenu) {
+                return (
+                  <MenubarSub key={index}>
+                    <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
+                    <MenubarSubContent>
+                      {category.subMenu.map((subMenu, index) => {
+                        return (
+                          <MenubarItem key={index}>
+                            <Link href='/'>{subMenu.name}</Link>
+                          </MenubarItem>
+                        )
+                      })}
+                    </MenubarSubContent>
+                  </MenubarSub>
+                )
+              } else {
+                return (
+                  <MenubarItem key={index}>
+                    <Link href={category.link}>{category.name}</Link>
+                  </MenubarItem>
+                )
+              }
+            })}
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
           <MenubarTrigger>Campañas</MenubarTrigger>
           <MenubarContent>
-            {categories.campañas.map((category, index) => (
-              <MenubarItem key={index}>
-                <Link href={category.link}>{category.name}</Link>
-              </MenubarItem>
-            ))}
+            {categories.campañas.map((category, index) => {
+              if (category.subMenu) {
+                return (
+                  <MenubarSub key={index}>
+                    <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
+                    <MenubarSubContent>
+                      {category.subMenu.map((subMenu, index) => {
+                        return (
+                          <MenubarItem key={index}>
+                            <Link href='/'>{subMenu.name}</Link>
+                          </MenubarItem>
+                        )
+                      })}
+                    </MenubarSubContent>
+                  </MenubarSub>
+                )
+              } else {
+                return (
+                  <MenubarItem key={index}>
+                    <Link href={category.link}>{category.name}</Link>
+                  </MenubarItem>
+                )
+              }
+            })}
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
           <MenubarTrigger>Administación</MenubarTrigger>
           <MenubarContent>
-            {categories.administración.map((category, index) => (
-              <MenubarItem key={index}>
-                <Link href={category.link}>{category.name}</Link>
-              </MenubarItem>
-            ))}
+            {categories.administración.map((category, index) => {
+              if (category.subMenu) {
+                return (
+                  <MenubarSub key={index}>
+                    <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
+                    <MenubarSubContent>
+                      {category.subMenu.map((subMenu, index) => {
+                        return (
+                          <MenubarItem key={index}>
+                            <Link href='/'>{subMenu.name}</Link>
+                          </MenubarItem>
+                        )
+                      })}
+                    </MenubarSubContent>
+                  </MenubarSub>
+                )
+              } else {
+                return (
+                  <MenubarItem key={index}>
+                    <Link href={category.link}>{category.name}</Link>
+                  </MenubarItem>
+                )
+              }
+            })}
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
