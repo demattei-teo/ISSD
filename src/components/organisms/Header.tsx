@@ -8,7 +8,6 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { CloseIcon, MenuIcon } from '..'
 import Button from '../atoms/Buttons'
-import { ScrollArea } from '../ui/scroll-area'
 
 function Header() {
   const [open, setOpen] = useState(false)
@@ -30,34 +29,32 @@ function Header() {
 
         <MenubarMenu>
           <MenubarTrigger>Archivo</MenubarTrigger>
-          <MenubarContent>
-            <ScrollArea className='h-[384px] px-2 overflow-auto'>
+          <MenubarContent className='h-[380px] overflow-y-scroll scrollable'>
 
-              {categories.archivo.map((category, index) => {
-                if (category.subMenu) {
-                  return (
-                    <MenubarSub key={index}>
-                      <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
-                      <MenubarSubContent>
-                        {category.subMenu.map((subMenu, index) => {
-                          return (
-                            <MenubarItem key={index}>
-                              <Link href='/'>{subMenu.name}</Link>
-                            </MenubarItem>
-                          )
-                        })}
-                      </MenubarSubContent>
-                    </MenubarSub>
-                  )
-                } else {
-                  return (
-                    <MenubarItem key={index}>
-                      <Link href={category.link}>{category.name}</Link>
-                    </MenubarItem>
-                  )
-                }
-              })}
-            </ScrollArea>
+            {categories.archivo.map((category, index) => {
+              if (category.subMenu) {
+                return (
+                  <MenubarSub key={index}>
+                    <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
+                    <MenubarSubContent>
+                      {category.subMenu.map((subMenu, index) => {
+                        return (
+                          <MenubarItem key={index}>
+                            <Link href='/'>{subMenu.name}</Link>
+                          </MenubarItem>
+                        )
+                      })}
+                    </MenubarSubContent>
+                  </MenubarSub>
+                )
+              } else {
+                return (
+                  <MenubarItem key={index}>
+                    <Link href={category.link}>{category.name}</Link>
+                  </MenubarItem>
+                )
+              }
+            })}
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
