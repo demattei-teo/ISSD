@@ -19,19 +19,19 @@ function Header() {
   return (
     <header className='overflow-x-hidden w-full lg:bg-primary-green'>
       <div className='w-full p-2 lg:hidden flex absolute justify-between items-center'>
-        <Image className='object-cover' src='/ISSD Negro horizontal.png' alt='logo' width={200} height={120} />
         <Button onClick={() => handleOpen(true)}><MenuIcon /></Button>
+        <Image className='object-cover h-auto w-auto' src='/ISSD Negro horizontal.png' priority alt='logo ISSD' width={180} height={100} />
       </div>
       <Menubar className={style.menuBar}>
         <div className='border-b flex lg:hidden pb-2 justify-between items-center border-slate-200 dark:border-slate-700 w-full'>
-          <Image className='object-cover' src='/Blanco horizontal.png' alt='logo' width={200} height={120} />
           <Button onClick={() => handleOpen(false)}><CloseIcon className='fill-gray-200' /></Button>
+          <Image className='object-cover h-auto w-auto' src='/Blanco horizontal.png' alt='logo ISSD' width={180} height={100} />
         </div>
 
         <MenubarMenu>
           <MenubarTrigger>Archivo</MenubarTrigger>
           <MenubarContent>
-            <ScrollArea className='h-[384px] px-2'>
+            <ScrollArea className='h-[384px] px-2 overflow-auto'>
 
               {categories.archivo.map((category, index) => {
                 if (category.subMenu) {
