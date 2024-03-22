@@ -36,8 +36,8 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog') {
-                        return <Abm key={index} name={subMenu.name} />
+                      if (category.role === 'dialog ABM' && category.inputs) {
+                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
                       } else {
                         return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
@@ -65,8 +65,8 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog') {
-                        return <Abm key={index} name={subMenu.name} />
+                      if (category.role === 'dialog ABM' && category.inputs) {
+                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
                       } else {
                         return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
@@ -95,8 +95,8 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog') {
-                        return <Abm key={index} name={subMenu.name} />
+                      if (category.role === 'dialog ABM' && category.inputs) {
+                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
                       } else {
                         return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
@@ -124,8 +124,8 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog') {
-                        return <Abm key={index} name={subMenu.name} />
+                      if (category.role === 'dialog ABM' && category.inputs) {
+                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
                       } else {
                         return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
@@ -153,8 +153,8 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog') {
-                        return <Abm key={index} name={subMenu.name} />
+                      if (category.role === 'dialog ABM' && category.inputs) {
+                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
                       } else {
                         return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
@@ -182,8 +182,8 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog') {
-                        return <Abm key={index} name={subMenu.name} />
+                      if (category.role === 'dialog ABM' && category.inputs) {
+                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
                       } else {
                         return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
@@ -211,8 +211,8 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog') {
-                        return <Abm key={index} name={subMenu.name} />
+                      if (category.role === 'dialog ABM' && category.inputs) {
+                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
                       } else {
                         return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
