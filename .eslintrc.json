@@ -11,5 +11,6 @@
     "@typescript-eslint/prefer-nullish-coalescing": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "no-multiple-empty-lines": "off"
+
   }
 }

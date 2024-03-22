@@ -120,7 +120,7 @@ React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Item> & {
   <MenubarPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex hover:bg-slate-200/70 transition-colors cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-slate-100 focus:text-slate-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-slate-800 dark:focus:text-slate-50',
+      'flex hover:bg-slate-200/70 transition-colors cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-slate-100 focus:text-slate-900 data-[disabled] data-[disabled]:opacity-50 dark:focus:bg-slate-800 dark:focus:text-slate-50',
       inset && 'pl-8',
       className
     )}
