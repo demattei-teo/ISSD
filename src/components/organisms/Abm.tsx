@@ -29,7 +29,7 @@ function Abm({ name, header, inputs, table }: AbmProps) {
           <AlertDialogHeader>
             <List className='flex gap-4'>
               <Item>
-                <button className='flex gap-2 items-center flex-wrap p-2 px-4 text-white bg-primary-green rounded-md'><PlusIcon /><p className='flex text-start flex-col'> Nuevo <span className=''>{formatWord(table)}</span></p>
+                <button className='flex gap-2 items-center flex-wrap p-2 px-4 text-white bg-primary-green rounded-md'><PlusIcon /><p className='flex text-start flex-col'> Nuevo/a <span className=''>{formatWord(table)}</span></p>
                 </button>
               </Item>
               <Item>
