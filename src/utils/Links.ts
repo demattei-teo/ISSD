@@ -1,16 +1,16 @@
 interface Category {
   table?: string
-  role?: string
   name: string
   link?: string
   subMenu?: Array<{
+    role: string
     name: string
     link?: string
-  }>
-  inputs?: Array<{
-    type: string
-    name: string
-    label: string
+    inputs?: Array<{
+      type: string
+      name: string
+      label: string
+    }>
   }>
 }
 
@@ -31,124 +31,330 @@ interface categoriesProps {
 
 const categories: categoriesProps = {
   archivo: [
-    { table: 'sede', role: 'dialog ABM', name: 'Sede', link: '/', subMenu: [{ name: 'ABM Sede' }, { name: 'Consultar Sede' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'sede',
+      name: 'Sede',
+      link: '/',
+      subMenu: [{ role: 'dialog ABM', name: 'ABM Sede', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { role: 'dialog consult', name: 'Consultar Sede' }]
+    },
 
-    { table: 'campaña', role: 'dialog ABM', name: 'Campaña', link: '/', subMenu: [{ name: 'ABM Campaña' }, { link: '/', name: 'Consultar Campaña' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'campaña',
+      name: 'Campaña',
+      link: '/',
+      subMenu: [{ name: 'ABM Campaña', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Campaña', role: 'dialog consult' }]
+    },
 
-    { table: 'cohorte', role: 'dialog ABM', name: 'Cohorte', link: '/', subMenu: [{ name: 'ABM Cohorte' }, { link: '/', name: 'Consultar Cohorte' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'cohorte',
+      name: 'Cohorte',
+      link: '/',
+      subMenu: [{ name: 'ABM Cohorte', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Cohorte', role: 'dialog consult' }]
+    },
 
-    { table: 'modalidad', role: 'dialog ABM', name: 'Modalidad', link: '/', subMenu: [{ name: 'ABM Modalidad' }, { link: '/', name: 'Consultar Modalidad' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'modalidad',
+      name: 'Modalidad',
+      link: '/',
+      subMenu: [{ name: 'ABM Modalidad', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Modalidad', role: 'dialog consult' }]
+    },
 
-    { table: 'nivel_estudio', role: 'dialog ABM', name: 'Nivel Estudio', link: '/', subMenu: [{ name: 'ABM Nivel Estudio' }, { link: '/', name: 'Consultar Nivel Estudio' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'nivel_estudio',
+      name: 'Nivel Estudio',
+      link: '/',
+      subMenu: [{ name: 'ABM Nivel Estudio', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Nivel Estudio', role: 'dialog consult' }]
+    },
 
-    { table: 'eleccion', role: 'dialog ABM', name: 'Elección ISSD', link: '/', subMenu: [{ name: 'ABM Elección' }, { link: '/', name: 'Consultar Elección ISSD' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'eleccion',
+      name: 'Elección ISSD',
+      link: '/',
+      subMenu: [{ name: 'ABM Elección', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Elección ISSD', role: 'dialog consult' }]
+    },
 
-    { table: 'eleccion_carrera', role: 'dialog ABM', name: 'Elección Carrera', link: '/', subMenu: [{ name: 'ABM Eelección Carrera' }, { link: '/', name: 'Consultar Elección Carrera' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'eleccion_carrera',
+      name: 'Elección Carrera',
+      link: '/',
+      subMenu: [{ name: 'ABM Eelección Carrera', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Elección Carrera', role: 'dialog consult' }]
+    },
 
-    { table: 'carga_semanal', role: 'dialog ABM', name: 'Carga Semanal', link: '/', subMenu: [{ name: 'ABM Carga Semanal' }, { link: '/', name: 'Consultar Carga Semanal' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'carga_semanal',
+      name: 'Carga Semanal',
+      link: '/',
+      subMenu: [{ name: 'ABM Carga Semanal', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Carga Semanal', role: 'dialog consult' }]
+    },
 
-    { table: 'tipo_dni', role: 'dialog ABM', name: 'Tipo DNI', link: '/', subMenu: [{ name: 'ABM Tipo DNI' }, { link: '/', name: 'Consultar Tipo DNI' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'tipo_dni',
+      name: 'Tipo DNI',
+      link: '/',
+      subMenu: [{ name: 'ABM Tipo DNI', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Tipo DNI', role: 'dialog consult' }]
+    },
 
-    { table: 'sexo', role: 'dialog ABM', name: 'Sexo', link: '/', subMenu: [{ name: 'ABM Sexo' }, { link: '/', name: 'Consultar Sexo' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'sexo',
+      name: 'Sexo',
+      link: '/',
+      subMenu: [{ name: 'ABM Sexo', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Sexo', role: 'dialog consult' }]
+    },
 
-    { table: 'estado_civil', role: 'dialog ABM', name: 'Estado Civil', link: '/', subMenu: [{ name: 'ABM Estado Civil' }, { link: '/', name: 'Consultar Estado Civil' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'estado_civil',
+      name: 'Estado Civil',
+      link: '/',
+      subMenu: [{ name: 'ABM Estado Civil', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Estado Civil', role: 'dialog consult' }]
+    },
 
-    { table: 'tipo_vivienda', role: 'dialog ABM', name: 'Tipo Vivienda', link: '/', subMenu: [{ name: 'ABM Tipo Vivienda' }, { link: '/', name: 'Consultar Tipo Vivienda' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'tipo_vivienda',
+      name: 'Tipo Vivienda',
+      link: '/',
+      subMenu: [{ name: 'ABM Tipo Vivienda', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Tipo Vivienda', role: 'dialog consult' }]
+    },
 
-    { table: 'parentesco', role: 'dialog ABM', name: 'Parentesco', link: '/', subMenu: [{ name: 'ABM Parentesco' }, { link: '/', name: 'Consultar Parentesco' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'parentesco',
+      name: 'Parentesco',
+      link: '/',
+      subMenu: [{ name: 'ABM Parentesco', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Parentesco', role: 'dialog consult' }]
+    },
 
-    { table: 'ocupacion', role: 'dialog ABM', name: 'Ocupación', link: '/', subMenu: [{ name: 'ABM Ocupación' }, { link: '/', name: 'Consultar Ocupación' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'ocupacion',
+      name: 'Ocupación',
+      link: '/',
+      subMenu: [{ name: 'ABM Ocupación', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Ocupación', role: 'dialog consult' }]
+    },
 
-    { table: 'vive_con', role: 'dialog ABM', name: 'Vive Con', link: '/', subMenu: [{ name: 'ABM Vive Con' }, { link: '/', name: 'Consultar Vive Con' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'vive_con',
+      name: 'Vive Con',
+      link: '/',
+      subMenu: [{ name: 'ABM Vive Con', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Vive Con', role: 'dialog consult' }]
+    },
 
-    { table: 'pais', role: 'dialog ABM', name: 'Pais', link: '/', subMenu: [{ name: 'ABM Pais' }, { link: '/', name: 'Consultar Pais' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'pais',
+      name: 'Pais',
+      link: '/',
+      subMenu: [{ name: 'ABM Pais', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Pais', role: 'dialog consult' }]
+    },
 
-    { table: 'provincia', role: 'dialog ABM', name: 'Provincia', link: '/', subMenu: [{ name: 'ABM Provincia' }, { link: '/', name: 'Consultar Provincia' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'provincia',
+      name: 'Provincia',
+      link: '/',
+      subMenu: [{ name: 'ABM Provincia', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Provincia', role: 'dialog consult' }]
+    },
 
-    { table: 'localidad', role: 'dialog ABM', name: 'Localidad', link: '/', subMenu: [{ name: 'ABM Localidad' }, { link: '/', name: 'Consultar Localidad' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'localidad',
+      name: 'Localidad',
+      link: '/',
+      subMenu: [{ name: 'ABM Localidad', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Localidad', role: 'dialog consult' }]
+    },
 
-    { table: 'barrio', role: 'dialog ABM', name: 'Barrio', link: '/', subMenu: [{ name: 'ABM Barrio' }, { link: '/', name: 'Consultar Barrio' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }
+    {
+      table: 'barrio',
+      name: 'Barrio',
+      link: '/',
+      subMenu: [{ name: 'ABM Barrio', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Barrio', role: 'dialog consult' }]
+    }
   ],
 
   carreras: [
-    { table: 'carreras', role: 'dialog ABM', name: 'Carreras', link: '/', subMenu: [{ name: 'ABM Carreras' }, { link: '/', name: 'Consultar Carreras' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'carreras',
+      name: 'Carreras',
+      link: '/',
+      subMenu: [{ name: 'ABM Carreras', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Carreras', role: 'dialog consult' }]
+    },
 
-    { table: 'materias', role: 'dialog ABM', name: 'Materias', link: '/', subMenu: [{ name: 'ABM Materias' }, { link: '/', name: 'Consultar Materias' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'materias',
+      name: 'Materias',
+      link: '/',
+      subMenu: [{ name: 'ABM Materias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Materias', role: 'dialog consult' }]
+    },
 
-    { table: 'planes', role: 'dialog ABM', name: 'Planes Estudio', link: '/', subMenu: [{ name: 'ABM Planes Estudio' }, { link: '/', name: 'Consultar Planes Estudio' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'planes',
+      name: 'Planes Estudio',
+      link: '/',
+      subMenu: [{ name: 'ABM Planes Estudio', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Planes Estudio', role: 'dialog consult' }]
+    },
 
-    { table: 'correlativas', role: 'dialog ABM', name: 'Correlativas', link: '/', subMenu: [{ name: 'ABM Correlativas' }, { link: '/', name: 'Consultar Correlativas' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'correlativas',
+      name: 'Correlativas',
+      link: '/',
+      subMenu: [{ name: 'ABM Correlativas', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Correlativas', role: 'dialog consult' }]
+    },
 
-    { table: 'material_didactico', role: 'dialog ABM', name: 'Material Didáctico', link: '/', subMenu: [{ name: 'ABM Material Didáctico' }, { link: '/', name: 'Consultar Material Didáctico' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }
+    {
+      table: 'material_didactico',
+      name: 'Material Didáctico',
+      link: '/',
+      subMenu: [{ name: 'ABM Material Didáctico', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Material Didáctico', role: 'dialog consult' }]
+    }
   ],
 
   alumnos: [
-    { table: 'alumnos', role: 'dialog ABM', name: 'Alumnos', link: '/', subMenu: [{ name: 'ABM Alumnos' }, { link: '/', name: 'Consultar Alumnos' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'alumnos',
+      name: 'Alumnos',
+      link: '/',
+      subMenu: [{ name: 'ABM Alumnos', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Alumnos', role: 'dialog consult' }]
+    },
 
-    { table: 'historico_alumnos', role: 'link', name: 'Historico Alumnos', link: '/' },
+    { table: 'historico_alumnos', name: 'Historico Alumnos', link: '/' },
 
-    { table: 'equivalencias', role: 'dialog ABM', name: 'Equivalencias', link: '/', subMenu: [{ name: 'ABM Equivalencias' }, { link: '/', name: 'Consultar Equivalencias' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'equivalencias',
+      name: 'Equivalencias',
+      link: '/',
+      subMenu: [{ name: 'ABM Equivalencias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Equivalencias', role: 'dialog consult' }]
+    },
 
-    { table: 'asistencias', role: 'dialog ABM', name: 'Asistencias', link: '/', subMenu: [{ name: 'ABM Asistencias' }, { link: '/', name: 'Consultar Asistencias' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'asistencias',
+      name: 'Asistencias',
+      link: '/',
+      subMenu: [{ name: 'ABM Asistencias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Asistencias', role: 'dialog consult' }]
+    },
 
-    { table: 'pases', role: 'dialog ABM', name: 'Pases', link: '/', subMenu: [{ name: 'ABM Pases' }, { link: '/', name: 'Consultar Pases' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }
+    {
+      table: 'pases',
+      name: 'Pases',
+      link: '/',
+      subMenu: [{ name: 'ABM Pases', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Pases', role: 'dialog consult' }]
+    }
   ],
 
   docentes: [
     {
       table: 'docentes',
-      role: 'dialog ABM',
       name: 'Docentes',
       link: '/',
-      subMenu: [{ name: 'ABM Docentes' }],
-      inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }]
+      subMenu: [{ name: 'ABM Docentes', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }]
     },
     {
       table: 'docentes',
-      role: 'dialog ABM',
       name: 'Consultar Docentes',
       link: '/',
-      subMenu: [{ name: 'ABM Docentes' }, { name: 'Consultar Docentes' }],
-      inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }]
+      subMenu: [{ name: 'ABM Docentes', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { name: 'Consultar Docentes', role: 'dialog consult' }]
     },
 
-    { role: 'link', name: 'Histórico Docentes', link: '/' },
+    { name: 'Histórico Docentes', link: '/' },
 
-    { role: 'link', name: 'Emitir Certificado', link: '/' },
+    { name: 'Emitir Certificado', link: '/' },
 
-    { table: 'tardanzas', role: 'dialog ABM', name: 'Tardanzas', link: '/', subMenu: [{ name: 'ABM Tardanzas' }, { link: '/', name: 'Consultar Tardanzas' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'tardanzas',
+      name: 'Tardanzas',
+      link: '/',
+      subMenu: [{ name: 'ABM Tardanzas', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Tardanzas', role: 'dialog consult' }]
+    },
 
-    { table: 'inasistencias', role: 'dialog ABM', name: 'Inasistencias', link: '/', subMenu: [{ name: 'ABM Inasistencias' }, { link: '/', name: 'Consultar Inasistencias' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'inasistencias',
+      name: 'Inasistencias',
+      link: '/',
+      subMenu: [{ name: 'ABM Inasistencias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Inasistencias', role: 'dialog consult' }]
+    },
 
-    { table: 'marcas', role: 'dialog ABM', name: 'Marcas', link: '/', subMenu: [{ name: 'ABM Marcas' }, { link: '/', name: 'Consultar Marcas' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }
+    {
+      table: 'marcas',
+      name: 'Marcas',
+      link: '/',
+      subMenu: [{ name: 'ABM Marcas', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Marcas', role: 'dialog consult' }]
+    }
   ],
 
   cursado: [
-    { table: 'Inscripciónes_cursado', role: 'dialog ABM', name: 'Inscripciónes Cursado', link: '/', subMenu: [{ name: 'ABM Inscripciónes Cursado' }, { link: '/', name: 'Consultar Cursado' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'Inscripciónes_cursado',
+      name: 'Inscripciónes Cursado',
+      link: '/',
+      subMenu: [{ name: 'ABM Inscripciónes Cursado', role: 'dialog ABM' }, { link: '/', name: 'Consultar Cursado', role: 'dialog consult' }]
+    },
 
-    { table: 'Inscripción_Examen', role: 'dialog ABM', name: 'Inscripción Examen', link: '/', subMenu: [{ name: 'ABM Inscripción Examen' }, { link: '/', name: 'Consultar Examen' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'Inscripción_Examen',
+      name: 'Inscripción Examen',
+      link: '/',
+      subMenu: [{ name: 'ABM Inscripción Examen', role: 'dialog ABM' }, { link: '/', name: 'Consultar Examen', role: 'dialog consult' }]
+    },
 
-    { table: 'Turno_Examen', role: 'dialog ABM', name: 'Turno Examen', link: '/', subMenu: [{ name: 'ABM Turno Examen' }, { link: '/', name: 'Consultar Turno' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'Turno_Examen',
+      name: 'Turno Examen',
+      link: '/',
+      subMenu: [{ name: 'ABM Turno Examen', role: 'dialog ABM' }, { link: '/', name: 'Consultar Turno', role: 'dialog consult' }]
+    },
 
-    { table: 'Programación_Horarios', role: 'dialog ABM', name: 'Programación Horarios', link: '/', subMenu: [{ name: 'ABM Programación Horarios' }, { link: '/', name: 'Consultar Programación Horarios' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }
+    {
+      table: 'Programación_Horarios',
+      name: 'Programación Horarios',
+      link: '/',
+      subMenu: [{ name: 'ABM Programación Horarios', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Programación Horarios', role: 'dialog consult' }]
+    }
   ],
 
   campañas: [
-    { table: 'Asesores', role: 'dialog ABM', name: 'Asesores', link: '/', subMenu: [{ name: 'ABM Asesores' }, { link: '/', name: 'Consultar Asesores' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'Asesores',
+      name: 'Asesores',
+      link: '/',
+      subMenu: [{ name: 'ABM Asesores', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Asesores', role: 'dialog consult' }]
+    },
 
-    { table: 'Liquidación_Asesores', role: 'dialog ABM', name: 'Liquidación Asesores', link: '/', subMenu: [{ name: 'ABM Liquidación Asesores' }, { link: '/', name: 'Consultar Liquidación Asesores' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'Liquidación_Asesores',
+      name: 'Liquidación Asesores',
+      link: '/',
+      subMenu: [{ name: 'ABM Liquidación Asesores', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Liquidación Asesores', role: 'dialog consult' }]
+    },
 
-    { table: 'Convocatorias', role: 'dialog ABM', name: 'Convocatorias', link: '/', subMenu: [{ name: 'ABM Convocatorias' }, { link: '/', name: 'Consultar Convocatorias' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }
+    {
+      table: 'Convocatorias',
+      name: 'Convocatorias',
+      link: '/',
+      subMenu: [{ name: 'ABM Convocatorias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Convocatorias', role: 'dialog consult' }]
+    }
   ],
 
   administración: [
-    { table: 'Pagos', role: 'dialog ABM', name: 'Pagos', link: '/', subMenu: [{ name: 'ABM Pagos' }, { link: '/', name: 'Consultar Pagos' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'Pagos',
+      name: 'Pagos',
+      link: '/',
+      subMenu: [{ name: 'ABM Pagos', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Pagos', role: 'dialog consult' }]
+    },
 
-    { table: 'Recibos', role: 'dialog ABM', name: 'Recibos', link: '/', subMenu: [{ name: 'ABM Recibos' }, { link: '/', name: 'Consultar Recibos' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'Recibos',
+      name: 'Recibos',
+      link: '/',
+      subMenu: [{ name: 'ABM Recibos', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Recibos', role: 'dialog consult' }]
+    },
 
-    { table: 'Compromisos_Pago', role: 'dialog ABM', name: 'Compromisos Pago', link: '/', subMenu: [{ name: 'ABM Compromisos Pago' }, { link: '/', name: 'Consultar Compromisos' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] },
+    {
+      table: 'Compromisos_Pago',
+      name: 'Compromisos Pago',
+      link: '/',
+      subMenu: [{ name: 'ABM Compromisos Pago', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }, { link: '/', name: 'Consultar Compromisos', role: 'dialog consult' }]
+    },
 
-    { table: 'Plan_Cuotas', role: 'dialog ABM', name: 'Plan de Cuotas', link: '/', subMenu: [{ name: 'ABM Plan de Cuotas' }, { link: '/', name: 'Consultar Plan de Cuotas' }], inputs: [{ type: 'number', name: 'code', label: 'codigo' }, { type: 'text', name: 'name', label: 'nombre' }] }
+    {
+      table: 'Plan_Cuotas',
+      name: 'Plan de Cuotas',
+      link: '/',
+      subMenu: [{ name: 'ABM Plan de Cuotas', role: 'dialog ABM' }, { link: '/', name: 'Consultar Plan de Cuotas', role: 'dialog consult' }]
+    }
   ]
 }
 

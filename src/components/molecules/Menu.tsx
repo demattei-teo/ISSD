@@ -5,7 +5,7 @@ import { categories } from '@/utils/Links'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Abm, CloseIcon } from '..'
+import { Abm, CloseIcon, Consult } from '..'
 import Button from '../atoms/Buttons'
 
 
@@ -36,10 +36,14 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog ABM' && category.inputs) {
-                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
-                      } else {
-                        return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
+                      switch (subMenu.role) {
+                        case 'dialog ABM':
+                          return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={subMenu.inputs} />
+
+                        case 'dialog consult': return <Consult table={category.table ?? ''} key={index} name={subMenu.name} />
+
+                        default:
+                          return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
                     })}
                   </MenubarSubContent>
@@ -65,10 +69,12 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog ABM' && category.inputs) {
-                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
-                      } else {
-                        return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
+                      switch (subMenu.role) {
+                        case 'dialog ABM':
+                          return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={subMenu.inputs} />
+                        case 'dialog consult': return <Consult table={category.table ?? ''} key={index} name={subMenu.name} />
+                        default:
+                          return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
                     })}
                   </MenubarSubContent>
@@ -95,10 +101,12 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog ABM' && category.inputs) {
-                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
-                      } else {
-                        return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
+                      switch (subMenu.role) {
+                        case 'dialog ABM':
+                          return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={subMenu.inputs} />
+                        case 'dialog consult': return <Consult table={category.table ?? ''} key={index} name={subMenu.name} />
+                        default:
+                          return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
                     })}
                   </MenubarSubContent>
@@ -124,10 +132,12 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog ABM' && category.inputs) {
-                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
-                      } else {
-                        return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
+                      switch (subMenu.role) {
+                        case 'dialog ABM':
+                          return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={subMenu.inputs} />
+                        case 'dialog consult': return <Consult table={category.table ?? ''} key={index} name={subMenu.name} />
+                        default:
+                          return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
                     })}
                   </MenubarSubContent>
@@ -153,10 +163,12 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog ABM' && category.inputs) {
-                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
-                      } else {
-                        return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
+                      switch (subMenu.role) {
+                        case 'dialog ABM':
+                          return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={subMenu.inputs} />
+                        case 'dialog consult': return <Consult table={category.table ?? ''} key={index} name={subMenu.name} />
+                        default:
+                          return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
                     })}
                   </MenubarSubContent>
@@ -182,10 +194,12 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog ABM' && category.inputs) {
-                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
-                      } else {
-                        return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
+                      switch (subMenu.role) {
+                        case 'dialog ABM':
+                          return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={subMenu.inputs} />
+                        case 'dialog consult': return <Consult table={category.table ?? ''} key={index} name={subMenu.name} />
+                        default:
+                          return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
                     })}
                   </MenubarSubContent>
@@ -211,10 +225,12 @@ function Menu({ open, handleOpen }: MenuProps) {
                   <MenubarSubTrigger>{category.name}</MenubarSubTrigger>
                   <MenubarSubContent>
                     {category.subMenu.map((subMenu, index) => {
-                      if (category.role === 'dialog ABM' && category.inputs) {
-                        return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={category.inputs} />
-                      } else {
-                        return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
+                      switch (subMenu.role) {
+                        case 'dialog ABM':
+                          return <Abm table={category.table ?? ''} key={index} name={subMenu.name} inputs={subMenu.inputs} />
+                        case 'dialog consult': return <Consult table={category.table ?? ''} key={index} name={subMenu.name} />
+                        default:
+                          return <MenubarItem key={index}><Link href={subMenu.link ?? '/'}>{subMenu.name}</Link></MenubarItem>
                       }
                     })}
                   </MenubarSubContent>
