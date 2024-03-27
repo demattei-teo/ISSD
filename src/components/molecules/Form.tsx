@@ -1,4 +1,4 @@
-import { AlertDialogCancel, AlertDialogFooter } from '../ui/alert-dialog'
+import { AlertDialogFooter } from '../ui/alert-dialog'
 import { Button } from '../ui/button'
 
 interface FormAbmProps {
@@ -15,8 +15,7 @@ function FormAbm({ children }: FormAbmProps) {
     >
       {children}
       <AlertDialogFooter className='pt-9'>
-        <AlertDialogCancel>Cancel</AlertDialogCancel>
-        <Button type='submit'>enviar</Button>
+        <Button type='submit'>Guardar</Button>
       </AlertDialogFooter>
     </form>
   )
