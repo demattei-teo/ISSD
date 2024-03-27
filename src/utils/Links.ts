@@ -1,8 +1,14 @@
-interface Category {
-  table?: string
+export interface Category {
   name: string
   link?: string
   subMenu?: Array<{
+    abm?: {
+      header: {
+        linkAdd: string
+        linkEdit: string
+        linkSave: string
+      }
+    }
     role: string
     name: string
     link?: string
@@ -31,221 +37,293 @@ interface categoriesProps {
 
 const categories: categoriesProps = {
   archivo: [
+
     {
-      table: 'sede',
+
       name: 'Sede',
       link: '/',
-      subMenu: [{ role: 'dialog ABM', name: 'ABM Sede', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { role: 'dialog consult', name: 'Consultar Sede' }]
+      subMenu: [
+        { role: 'dialog ABM', abm: { header: { linkAdd: 'Nueva Sede', linkEdit: 'Modificar Sede', linkSave: 'Guardar Sede' } }, name: 'ABM Sede', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { role: 'dialog consult', name: 'Consultar Sede' }]
     },
 
     {
-      table: 'campaña',
+
       name: 'Campaña',
       link: '/',
-      subMenu: [{ name: 'ABM Campaña', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Campaña', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Campaña', linkEdit: 'Modificar Campaña', linkSave: 'Guardar Campaña' } }, name: 'ABM Campaña', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Campaña', role: 'dialog consult' }]
     },
 
     {
-      table: 'cohorte',
+
       name: 'Cohorte',
       link: '/',
-      subMenu: [{ name: 'ABM Cohorte', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Cohorte', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Cohorte', linkEdit: 'Modificar Cohorte', linkSave: 'Guardar Cohorte' } }, name: 'ABM Cohorte', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Cohorte', role: 'dialog consult' }]
     },
 
     {
-      table: 'modalidad',
+
       name: 'Modalidad',
       link: '/',
-      subMenu: [{ name: 'ABM Modalidad', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Modalidad', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Modalidad', linkEdit: 'Modificar Modalidad', linkSave: 'Guardar Modalidad' } }, name: 'ABM Modalidad', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Modalidad', role: 'dialog consult' }]
     },
 
     {
-      table: 'nivel_estudio',
+
       name: 'Nivel Estudio',
       link: '/',
-      subMenu: [{ name: 'ABM Nivel Estudio', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Nivel Estudio', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Estudio', linkEdit: 'Modificar Estudio', linkSave: 'Guardar Estudio' } }, name: 'ABM Nivel Estudio', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Nivel Estudio', role: 'dialog consult' }]
     },
 
     {
-      table: 'eleccion',
+
       name: 'Elección ISSD',
       link: '/',
-      subMenu: [{ name: 'ABM Elección', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Elección ISSD', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Elección ISSD', linkEdit: 'Modificar Elección ISSD', linkSave: 'Guardar Elección ISSD' } }, name: 'ABM Elección', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Elección ISSD', role: 'dialog consult' }]
     },
 
     {
-      table: 'eleccion_carrera',
+
       name: 'Elección Carrera',
       link: '/',
-      subMenu: [{ name: 'ABM Eelección Carrera', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Elección Carrera', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Elección Carrera', linkEdit: 'Modificar Elección Carrera', linkSave: 'Guardar Elección Carrera' } }, name: 'ABM Eelección Carrera', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Elección Carrera', role: 'dialog consult' }]
     },
 
     {
-      table: 'carga_semanal',
+
       name: 'Carga Semanal',
       link: '/',
-      subMenu: [{ name: 'ABM Carga Semanal', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Carga Semanal', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Carga Semanal', linkEdit: 'Modificar Carga Semanal', linkSave: 'Guardar Carga Semanal' } }, name: 'ABM Carga Semanal', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Carga Semanal', role: 'dialog consult' }]
     },
 
     {
-      table: 'tipo_dni',
+
       name: 'Tipo DNI',
       link: '/',
-      subMenu: [{ name: 'ABM Tipo DNI', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Tipo DNI', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Tipo DNI', linkEdit: 'Modificar Tipo DNI', linkSave: 'Guardar Tipo DNI' } }, name: 'ABM Tipo DNI', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Tipo DNI', role: 'dialog consult' }]
     },
 
     {
-      table: 'sexo',
+
       name: 'Sexo',
       link: '/',
-      subMenu: [{ name: 'ABM Sexo', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Sexo', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Sexo', linkEdit: 'Modificar Sexo', linkSave: 'Guardar Sexo' } }, name: 'ABM Sexo', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Sexo', role: 'dialog consult' }]
     },
 
     {
-      table: 'estado_civil',
+
       name: 'Estado Civil',
       link: '/',
-      subMenu: [{ name: 'ABM Estado Civil', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Estado Civil', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Sede', linkEdit: 'Modificar Sede', linkSave: 'Guardar Sede' } }, name: 'ABM Estado Civil', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Estado Civil', role: 'dialog consult' }]
     },
 
     {
-      table: 'tipo_vivienda',
+
       name: 'Tipo Vivienda',
       link: '/',
-      subMenu: [{ name: 'ABM Tipo Vivienda', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Tipo Vivienda', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Tipo Vivienda', linkEdit: 'Modificar Tipo Vivienda', linkSave: 'Guardar Tipo Vivienda' } }, name: 'ABM Tipo Vivienda', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Tipo Vivienda', role: 'dialog consult' }]
     },
 
     {
-      table: 'parentesco',
+
       name: 'Parentesco',
       link: '/',
-      subMenu: [{ name: 'ABM Parentesco', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Parentesco', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Parentesco', linkEdit: 'Modificar Parentesco', linkSave: 'Guardar Parentesco' } }, name: 'ABM Parentesco', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Parentesco', role: 'dialog consult' }]
     },
 
     {
-      table: 'ocupacion',
+
       name: 'Ocupación',
       link: '/',
-      subMenu: [{ name: 'ABM Ocupación', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Ocupación', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Ocupación', linkEdit: 'Modificar Ocupación', linkSave: 'Guardar Ocupación' } }, name: 'ABM Ocupación', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Ocupación', role: 'dialog consult' }]
     },
 
     {
-      table: 'vive_con',
+
       name: 'Vive Con',
       link: '/',
-      subMenu: [{ name: 'ABM Vive Con', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Vive Con', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Vive Con', linkEdit: 'Modificar Vive Con', linkSave: 'Guardar Vive Con' } }, name: 'ABM Vive Con', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Vive Con', role: 'dialog consult' }]
     },
 
     {
-      table: 'pais',
+
       name: 'Pais',
       link: '/',
-      subMenu: [{ name: 'ABM Pais', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Pais', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Pais', linkEdit: 'Modificar Pais', linkSave: 'Guardar Pais' } }, name: 'ABM Pais', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Pais', role: 'dialog consult' }]
     },
 
     {
-      table: 'provincia',
+
       name: 'Provincia',
       link: '/',
-      subMenu: [{ name: 'ABM Provincia', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Provincia', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva provincia', linkEdit: 'Modificar provincia', linkSave: 'Guardar provincia' } }, name: 'ABM Provincia', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Provincia', role: 'dialog consult' }]
     },
 
     {
-      table: 'localidad',
+
       name: 'Localidad',
       link: '/',
-      subMenu: [{ name: 'ABM Localidad', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Localidad', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Localidad', linkEdit: 'Modificar Localidad', linkSave: 'Guardar Localidad' } }, name: 'ABM Localidad', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Localidad', role: 'dialog consult' }]
     },
 
     {
-      table: 'barrio',
+
       name: 'Barrio',
       link: '/',
-      subMenu: [{ name: 'ABM Barrio', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Barrio', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Barrio', linkEdit: 'Modificar Barrio', linkSave: 'Guardar Barrio' } }, name: 'ABM Barrio', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Barrio', role: 'dialog consult' }]
     }
   ],
 
   carreras: [
     {
-      table: 'carreras',
+
       name: 'Carreras',
       link: '/',
-      subMenu: [{ name: 'ABM Carreras', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Carreras', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Carrera', linkEdit: 'Modificar Carrera', linkSave: 'Guardar Carrera' } }, name: 'ABM Carreras', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Carreras', role: 'dialog consult' }]
     },
 
     {
-      table: 'materias',
+
       name: 'Materias',
       link: '/',
-      subMenu: [{ name: 'ABM Materias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Materias', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Materia', linkEdit: 'Modificar Materia', linkSave: 'Guardar Materia' } }, name: 'ABM Materias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Materias', role: 'dialog consult' }]
     },
 
     {
-      table: 'planes',
+
       name: 'Planes Estudio',
       link: '/',
-      subMenu: [{ name: 'ABM Planes Estudio', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Planes Estudio', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Plan de Estudio', linkEdit: 'Modificar Plan de Estudio', linkSave: 'Guardar Plan de Estudio' } }, name: 'ABM Planes Estudio', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Planes Estudio', role: 'dialog consult' }]
     },
 
     {
-      table: 'correlativas',
+
       name: 'Correlativas',
       link: '/',
-      subMenu: [{ name: 'ABM Correlativas', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Correlativas', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Correlativas', linkEdit: 'Modificar Correlativas', linkSave: 'Guardar Correlativas' } }, name: 'ABM Correlativas', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Correlativas', role: 'dialog consult' }]
     },
 
     {
-      table: 'material_didactico',
+
       name: 'Material Didáctico',
       link: '/',
-      subMenu: [{ name: 'ABM Material Didáctico', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Material Didáctico', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Material Didáctico', linkEdit: 'Modificar Material Didáctico', linkSave: 'Guardar Material Didáctico' } }, name: 'ABM Material Didáctico', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Material Didáctico', role: 'dialog consult' }]
     }
   ],
 
   alumnos: [
     {
-      table: 'alumnos',
+
       name: 'Alumnos',
       link: '/',
-      subMenu: [{ name: 'ABM Alumnos', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Alumnos', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Alumno', linkEdit: 'Modificar Alumno', linkSave: 'Guardar Alumno' } }, name: 'ABM Alumnos', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Alumnos', role: 'dialog consult' }]
     },
 
-    { table: 'historico_alumnos', name: 'Historico Alumnos', link: '/' },
+    { name: 'Historico Alumnos', link: '/' },
 
     {
-      table: 'equivalencias',
+
       name: 'Equivalencias',
       link: '/',
-      subMenu: [{ name: 'ABM Equivalencias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Equivalencias', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Equivalencia', linkEdit: 'Modificar Equivalencia', linkSave: 'Guardar Equivalencia' } }, name: 'ABM Equivalencias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Equivalencias', role: 'dialog consult' }]
     },
 
     {
-      table: 'asistencias',
+
       name: 'Asistencias',
       link: '/',
-      subMenu: [{ name: 'ABM Asistencias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Asistencias', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Asistencia', linkEdit: 'Modificar Asistencia', linkSave: 'Guardar Asistencia' } }, name: 'ABM Asistencias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+
+        { link: '/', name: 'Consultar Asistencias', role: 'dialog consult' }]
     },
 
     {
-      table: 'pases',
+
       name: 'Pases',
       link: '/',
-      subMenu: [{ name: 'ABM Pases', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Pases', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Pases', linkEdit: 'Modificar Pases', linkSave: 'Guardar Pases' } }, name: 'ABM Pases', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Pases', role: 'dialog consult' }]
     }
   ],
 
   docentes: [
     {
-      table: 'docentes',
+
       name: 'Docentes',
       link: '/',
-      subMenu: [{ name: 'ABM Docentes', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }]
+      subMenu: [
+        {
+          abm: { header: { linkAdd: 'Nuevo Docentes', linkEdit: 'Modificar Docentes', linkSave: 'Guardar Docentes' } },
+          name: 'ABM Docentes',
+          role: 'dialog ABM',
+          inputs: [{ type: 'number', name: 'code', label: 'Código' },
+            { type: 'text', name: 'name', label: 'Nombre' }]
+        }]
     },
     {
-      table: 'docentes',
+
       name: 'Consultar Docentes',
       link: '/',
-      subMenu: [{ name: 'ABM Docentes', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { name: 'Consultar Docentes', role: 'dialog consult' }]
+      subMenu: [
+        {
+          abm: { header: { linkAdd: 'Nuevo Consultar Docente', linkEdit: 'Modificar Consultar Docente', linkSave: 'Guardar Consultar Docente' } },
+          name: 'ABM Docentes',
+          role: 'dialog ABM',
+          inputs: [{ type: 'number', name: 'code', label: 'Código' },
+            { type: 'text', name: 'name', label: 'Nombre' }]
+        }, { name: 'Consultar Docentes', role: 'dialog consult' }]
     },
 
     { name: 'Histórico Docentes', link: '/' },
@@ -253,107 +331,149 @@ const categories: categoriesProps = {
     { name: 'Emitir Certificado', link: '/' },
 
     {
-      table: 'tardanzas',
+
       name: 'Tardanzas',
       link: '/',
-      subMenu: [{ name: 'ABM Tardanzas', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Tardanzas', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Tardanza', linkEdit: 'Modificar Tardanza', linkSave: 'Guardar Tardanza' } }, name: 'ABM Tardanzas', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Tardanzas', role: 'dialog consult' }]
     },
 
     {
-      table: 'inasistencias',
+
       name: 'Inasistencias',
       link: '/',
-      subMenu: [{ name: 'ABM Inasistencias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Inasistencias', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Inasistencia', linkEdit: 'Modificar Inasistencia', linkSave: 'Guardar Inasistencia' } }, name: 'ABM Inasistencias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Inasistencias', role: 'dialog consult' }]
     },
 
     {
-      table: 'marcas',
+
       name: 'Marcas',
       link: '/',
-      subMenu: [{ name: 'ABM Marcas', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Marcas', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Marca', linkEdit: 'Modificar Marca', linkSave: 'Guardar Marca' } }, name: 'ABM Marcas', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Marcas', role: 'dialog consult' }]
     }
   ],
 
   cursado: [
     {
-      table: 'Inscripciónes_cursado',
+
       name: 'Inscripciónes Cursado',
       link: '/',
-      subMenu: [{ name: 'ABM Inscripciónes Cursado', role: 'dialog ABM' }, { link: '/', name: 'Consultar Cursado', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Inscripción de Cursado', linkEdit: 'Modificar Inscripción de Cursado', linkSave: 'Guardar Inscripción de Cursado' } }, name: 'ABM Inscripciónes Cursado', role: 'dialog ABM' },
+        { link: '/', name: 'Consultar Cursado', role: 'dialog consult' }]
     },
 
     {
-      table: 'Inscripción_Examen',
+
       name: 'Inscripción Examen',
       link: '/',
-      subMenu: [{ name: 'ABM Inscripción Examen', role: 'dialog ABM' }, { link: '/', name: 'Consultar Examen', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Inscripción de Examen', linkEdit: 'Modificar Inscripción de Examen', linkSave: 'Guardar Inscripción de Examen' } }, name: 'ABM Inscripción Examen', role: 'dialog ABM' },
+        { link: '/', name: 'Consultar Examen', role: 'dialog consult' }]
     },
 
     {
-      table: 'Turno_Examen',
+
       name: 'Turno Examen',
       link: '/',
-      subMenu: [{ name: 'ABM Turno Examen', role: 'dialog ABM' }, { link: '/', name: 'Consultar Turno', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Turno Examen', linkEdit: 'Modificar Turno Examen', linkSave: 'Guardar Turno Examen' } }, name: 'ABM Turno Examen', role: 'dialog ABM' },
+        { link: '/', name: 'Consultar Turno', role: 'dialog consult' }]
     },
 
     {
-      table: 'Programación_Horarios',
+
       name: 'Programación Horarios',
       link: '/',
-      subMenu: [{ name: 'ABM Programación Horarios', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Programación Horarios', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nueva Programación de Horarios', linkEdit: 'Modificar Programación de Horarios', linkSave: 'Guardar Programación de Horarios' } }, name: 'ABM Programación Horarios', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Programación Horarios', role: 'dialog consult' }]
     }
   ],
 
   campañas: [
     {
-      table: 'Asesores',
+
       name: 'Asesores',
       link: '/',
-      subMenu: [{ name: 'ABM Asesores', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Asesores', role: 'dialog consult' }]
+      subMenu: [
+        {
+          abm: { header: { linkAdd: 'Nuevo Asesor', linkEdit: 'Modificar Asesor ', linkSave: 'Guardar Asesor' } },
+          name: 'ABM Asesores',
+          role: 'dialog ABM',
+          inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }]
+        },
+        { link: '/', name: 'Consultar Asesores', role: 'dialog consult' }]
     },
 
     {
-      table: 'Liquidación_Asesores',
+
       name: 'Liquidación Asesores',
       link: '/',
-      subMenu: [{ name: 'ABM Liquidación Asesores', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Liquidación Asesores', role: 'dialog consult' }]
+      subMenu: [
+        {
+          abm: { header: { linkAdd: 'Nueva Liquidación de Asesores', linkEdit: 'Modificar Liquidación de Asesores', linkSave: 'Guardar Liquidación de Asesores' } },
+          name: 'ABM Liquidación Asesores',
+          role: 'dialog ABM',
+          inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }]
+        }, { link: '/', name: 'Consultar Liquidación Asesores', role: 'dialog consult' }]
     },
 
     {
-      table: 'Convocatorias',
+
       name: 'Convocatorias',
       link: '/',
-      subMenu: [{ name: 'ABM Convocatorias', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Convocatorias', role: 'dialog consult' }]
+      subMenu: [
+        {
+          abm: { header: { linkAdd: 'Nueva Convocatoria', linkEdit: 'Modificar Convocatoria', linkSave: 'Guardar Convocatoria' } },
+          name: 'ABM Convocatorias',
+          role: 'dialog ABM',
+          inputs: [{ type: 'number', name: 'code', label: 'Código' },
+            { type: 'text', name: 'name', label: 'Nombre' }]
+        }, { link: '/', name: 'Consultar Convocatorias', role: 'dialog consult' }]
     }
   ],
 
   administración: [
     {
-      table: 'Pagos',
+
       name: 'Pagos',
       link: '/',
-      subMenu: [{ name: 'ABM Pagos', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Pagos', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Pago', linkEdit: 'Modificar Pago', linkSave: 'Guardar Pago' } }, name: 'ABM Pagos', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Pagos', role: 'dialog consult' }]
     },
 
     {
-      table: 'Recibos',
+
       name: 'Recibos',
       link: '/',
-      subMenu: [{ name: 'ABM Recibos', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Recibos', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Recibo', linkEdit: 'Modificar Recibo', linkSave: 'Guardar Recibo' } }, name: 'ABM Recibos', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Recibos', role: 'dialog consult' }]
     },
 
     {
-      table: 'Compromisos_Pago',
+
       name: 'Compromisos Pago',
       link: '/',
-      subMenu: [{ name: 'ABM Compromisos Pago', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] }, { link: '/', name: 'Consultar Compromisos', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Compromiso Pago', linkEdit: 'Modificar Compromiso Pago', linkSave: 'Guardar Compromiso Pago' } }, name: 'ABM Compromisos Pago', role: 'dialog ABM', inputs: [{ type: 'number', name: 'code', label: 'Código' }, { type: 'text', name: 'name', label: 'Nombre' }] },
+        { link: '/', name: 'Consultar Compromisos', role: 'dialog consult' }]
     },
 
     {
-      table: 'Plan_Cuotas',
+
       name: 'Plan de Cuotas',
       link: '/',
-      subMenu: [{ name: 'ABM Plan de Cuotas', role: 'dialog ABM' }, { link: '/', name: 'Consultar Plan de Cuotas', role: 'dialog consult' }]
+      subMenu: [
+        { abm: { header: { linkAdd: 'Nuevo Plan de Cuota', linkEdit: 'Modificar Plan de Cuota', linkSave: 'Guardar Plan de Cuota' } }, name: 'ABM Plan de Cuotas', role: 'dialog ABM' },
+        { link: '/', name: 'Consultar Plan de Cuotas', role: 'dialog consult' }]
     }
   ]
 }
